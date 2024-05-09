@@ -2,32 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .scrollbar {
+    @apply relative left-5;
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+  .scrollbar::-webkit-scrollbar {
+    @apply w-1 shadow-lg rounded-md bg-gray-100;
+  }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .scrollbar::-webkit-scrollbar-track {
+    @apply w-1 shadow-lg rounded-md bg-gray-400;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    @apply shadow-lg rounded-md bg-black hover:cursor-pointer;
+  }
+
+  .messages-container {
+    @apply flex flex-col gap-6 overflow-y-scroll;
   }
 }
