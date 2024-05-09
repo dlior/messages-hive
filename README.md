@@ -6,7 +6,15 @@ First, run docker:
 docker-compose up -d
 ```
 
-Then, run the development server:
+Then, install dependencies, and prisma:
+
+```bash
+pnpm i
+pnpx prisma generate
+pnpx prisma db push
+```
+
+And finally, run the development server:
 
 ```bash
 pnpm dev
